@@ -16,11 +16,11 @@ public class RockPaperSccissors {
     public static String getComputerChoice(){
         int num = (int)(Math.random()*3);
         if(num==0){
-            return "The computer chose scissors.";
+            return "The computer chose rock.";
         }else if(num==1){
             return "The computer chose scissors.";
         }else{
-            return "The computer chose scissors.";
+            return "The computer chose paper.";
         }
     }
     public static String whoWins(String computer, String person){
