@@ -5,8 +5,10 @@ public class RockPaperSccissors {
     public static void main (String[] args){
         //invoke
         String user = getUserChoice();
-        String computer = getComputerChoice();
-        whoWins(computer,user);
+        System.out.println(user);
+        String comp = getComputerChoice();
+        System.out.println(comp);
+        System.out.println(whoWins(comp,user));
     }
     public static String getUserChoice(){
         Scanner input = new Scanner(System.in);
