@@ -1,7 +1,7 @@
 //Shirley Shuzhou Li 11/12/19 this program is devoted to a rock paper scissors game
 package com.company;
 import java.util.Scanner;
-public class RockPaperSccissors {
+public class RockPaperScissors {
     public static void main (String[] args){
         //invoke
         String user = getUserChoice();
@@ -19,11 +19,11 @@ public class RockPaperSccissors {
     public static String getComputerChoice(){
         int num = (int)(Math.random()*3);
         if(num==0){
-            return "The computer chose rock.";
+            return "The computer chose paper.";
         }else if(num==1){
             return "The computer chose scissors.";
         }else{
-            return "The computer chose paper.";
+            return "The computer chose rock.";
         }
     }
     public static String whoWins(String computer, String person){
@@ -37,14 +37,26 @@ public class RockPaperSccissors {
         String ppap= "You chose paper.";
         String psci = "You chose scissors.";
         //different probabilities
-        if((computer.equals(crock)&&person.equals(ppap))||(computer.equals(cpap)&&person.equals(psci))||(computer.equals(csci)&&person.equals(prock))){
+        if(
+                (computer.equals(crock)&&person.equals(ppap))
+                        ||(computer.equals(cpap)&&person.equals(psci))
+                        ||(computer.equals(csci)&&person.equals(prock))
+        ){
             return win;
-        }else if((computer.equals(crock)&&person.equals(psci))||(computer.equals(cpap)&&person.equals(prock))||(computer.equals(csci)&&person.equals(ppap))){
+        }else if(
+                (computer.equals(crock)&&person.equals(psci))
+                        ||(computer.equals(cpap)&&person.equals(prock))
+                        ||(computer.equals(csci)&&person.equals(ppap))
+        ){
             return los;
-        }else if((computer.equals(crock)&&person.equals(prock))||(computer.equals(cpap)&&person.equals(ppap))||(computer.equals(csci)&&person.equals(psci))){
+        }else if(
+                (person.equals(ppap)&&computer.equals(cpap))
+                        ||(computer.equals(crock)&&person.equals(prock))
+                        ||(computer.equals(csci)&&person.equals(psci))
+        ){
             return tie;
         }else{
-            return "invalid input!";
+            return "Invalid input!";
         }
     }
 }
