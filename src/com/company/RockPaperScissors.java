@@ -14,49 +14,51 @@ public class RockPaperScissors {
         Scanner input = new Scanner(System.in);
         System.out.println("Please choose either rock, paper, or scissors.");
         String choice = input.nextLine();
-        return "You chose "+choice+".";
+        return choice;
     }
     public static String getComputerChoice(){
         int num = (int)(Math.random()*3);
         if(num==0){
-            return "The computer chose paper.";
+            return "paper";
         }else if(num==1){
-            return "The computer chose scissors.";
+            return "scissors";
         }else{
-            return "The computer chose rock.";
+            return "rock";
         }
     }
     public static String whoWins(String computer, String person){
         String win ="You win!";
-        String los ="You lose!";
-        String tie ="It is a tie!";
-        String crock = "The computer chose rock.";
-        String cpap= "The computer chose paper.";
-        String csci = "The computer chose scissors.";
-        String prock = "You chose rock.";
-        String ppap= "You chose paper.";
-        String psci = "You chose scissors.";
+        String los ="The computer wins!";
+        String tie ="You tied!";
+        String crock = "rock";
+        String cpap= "paper";
+        String csci = "scissors";
+        String prock = "rock";
+        String ppap= "paper";
+        String psci = "scissors";
+        String ret= "You chose "+person+"."+"\n"+"The computer chose "+computer+"."+"\n";
+
         //different probabilities
-        if(
-                (computer.equals(crock)&&person.equals(ppap))
-                        ||(computer.equals(cpap)&&person.equals(psci))
-                        ||(computer.equals(csci)&&person.equals(prock))
-        ){
-            return win;
-        }else if(
-                (computer.equals(crock)&&person.equals(psci))
-                        ||(computer.equals(cpap)&&person.equals(prock))
-                        ||(computer.equals(csci)&&person.equals(ppap))
-        ){
-            return los;
-        }else if(
-                (person.equals(ppap)&&computer.equals(cpap))
-                        ||(computer.equals(crock)&&person.equals(prock))
-                        ||(computer.equals(csci)&&person.equals(psci))
-        ){
-            return tie;
-        }else{
-            return "Invalid input!";
+        if((computer.equals(crock)&&person.equals(ppap))){
+            return ret+win;
+        }else if((computer.equals(cpap)&&person.equals(psci))){
+            return ret+win;
+        }else if((computer.equals(csci)&&person.equals(prock))){
+            return ret+win;
+        }else if((computer.equals(crock)&&person.equals(psci))){
+            return ret+los;
+        }
+        else if((computer.equals(cpap)&&person.equals(prock))){
+            return ret+los;
+        }
+        else if((computer.equals(csci)&&person.equals(ppap))){
+            return ret+los;
+        }else if((person.equals(ppap)&&computer.equals(cpap))) {
+            return ret+tie;
+        }else if((person.equals(psci)&&computer.equals(csci))) {
+            return ret+tie;
+        } else{
+            return ret+tie;
         }
     }
 }
